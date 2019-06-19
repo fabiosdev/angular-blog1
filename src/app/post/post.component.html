@@ -1,0 +1,42 @@
+
+<li [ngClass]="{'list-group-item':true,
+                'list-group-item-success': postloveIts > 0,
+                'list-group-item-danger': postloveIts < 0}">
+  <div class="row p-3">
+    <div class="col-lg-4 bgcover bgcenter bgsize my-2 p-2 text-white" [ngStyle]="{'background-image':'url('+getBackground()+')'}">
+      Ajouté le {{ postCreation | date: 'dd/MM/yyyy' }}
+      <div [ngClass]="{'count-like':true,
+                       'count-like-success': postloveIts > 0,
+                       'count-like-danger': postloveIts < 0}">
+        {{postloveIts}}</div>
+    </div>
+    <div class="col-lg-8 my-2">
+      <h3>{{ postTitle}}</h3>
+      <p>{{ postContent}}</p>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 my-3">
+            <button class="btn rounded-pill mr-2 btn-success"
+              (click)="likeThis()">
+              <i class="fas fa-thumbs-up"></i> J'aime
+            </button>
+            <button class="btn rounded-pill mr-2 btn-danger"
+              (click)="dontLikethis()">
+              <i class="fas fa-thumbs-up"></i> Je n'aime pas
+            </button>
+          </div>
+          <div class="col-lg-6 my-3">
+            <button class="btn rounded-pill btn-remove boxshadow px-3 mx-1"
+                    (click)="removeThis()">
+              <i class="fas fa-trash-alt"></i> Supprimer
+            </button>
+            <button class="btn rounded-pill btn-remove boxshadow px-3 mx-1"
+                    (click)="addNew()">
+              <i class="fas fa-edit"></i> Ajouter
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>

@@ -1,0 +1,8 @@
+
+<app-post *ngFor="let post of posts"
+              [postImage]="post.image"
+              [postTitle]="post.title"
+              [postContent]="post.content"
+
+              [postCreation]="post.created_at"></app-post>
+

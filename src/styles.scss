@@ -1,0 +1,77 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800&display=swap');
+
+@mixin transition{
+  -webkit-transtition-duration: .5s;
+  transtition-duration: .5s;
+}
+$green: rgb(74, 76, 58);
+$red: rgb(79, 48, 38);
+$alpha3:.3;
+$alpha5:.5;
+$greenAlpha5:rgba($green, $alpha5);
+$greenAlpha3:rgba($green, $alpha3);
+$redAlpha5:rgba($red, $alpha5);
+$redAlpha3:rgba($red, $alpha3);
+body{
+  font-family: 'Raleway', sans-serif;
+  background: #d3d0c2;
+}
+h1,h2,h3,h4,h5,h6{
+  font-weight: 500;
+}
+h1{
+	margin:0;
+	&:before,&:after{content: '☆☆☆☆☆☆☆☆☆☆☆☆';display: block;text-align: center;padding: 2rem;font-size: .7rem;}
+}
+h2{
+	position: relative;
+	&:before{
+		content: '\f091';font-family: 'Font Awesome 5 Free';
+		display: block;font-size: 2.5rem;text-align: center;font-weight: 600;color: white;margin: 0 15%;
+		position: absolute;top: -2.5rem;
+	}
+}
+.count-like,.count-like-success,.count-like-danger{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: block;
+  width:40px;
+  height: 40px;
+  text-align: center;
+  margin-left: .3rem;
+  padding: .5rem;
+  color: black;
+  background-color: white;
+}
+.btn-success,.btn-success:hover{
+	background-color: $green;border-color: $green;
+}
+.btn-danger,.btn-danger:hover{
+	background-color: $red;border-color: $red;
+}
+.btn-success,.btn-danger{@include transition;&:hover{opacity: .5;}}
+.list-group-item-success{background-color: $greenAlpha3;color: $green;border-left: 5px solid $green;}
+.list-group-item-danger{background-color: $redAlpha5;color: $red;border-left: 5px solid $red;}
+.count-like-success{background-color: $green;color: white;}
+.count-like-danger{background-color: $red;color: white;}
+.list-group-item,.list-group-item-success,.list-group-item-danger{padding: 0.75rem 1.25rem;list-style: none;}
+.bgsize{
+  max-height:200px;min-height:200px;
+}
+.bgcover{
+  background-size: cover;
+  -webkit-background-size: cover;
+}
+.boxshadow{box-shadow: 20px 8px 20px 0px rgba(0,0,0,.10);}
+.bgcenter{background-position: center;}
+.bgtop{height: 35vh;min-height:200px;}
+.btn-danger i{-webkit-transform:rotate(180deg);transform:rotate(180deg);}
+.btn-remove{
+  background-color: white;
+  &:hover{
+    @include transition;
+    background-color:#31271B;color:white;
+  }
+}
